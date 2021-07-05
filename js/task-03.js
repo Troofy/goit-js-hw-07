@@ -14,8 +14,22 @@ const images = [
 ];
 
 const galleryList = document.querySelector('#gallery');
+const cardsMarkup = createImages(images);
 
-images.map((image) => {
-  const galleryItems = `<li><img src="${image.url} alt="${image.alt}"/></li>`;
-  return galleryList.insertAdjacentHTML('beforeend', galleryItems);
-});
+galleryList.insertAdjacentHTML('beforeend', cardsMarkup);
+
+function createImages(images) {
+  return images.map(({ url, alt }) => {
+    return `<li><img src="${url}" alt="${alt}"/></a></li>`;
+    })
+    .join('');
+}
+
+
+
+// const galleryList = document.querySelector('#gallery');
+
+// images.map((image) => {
+//   const galleryItems = `<li><img src='${image.url}' alt='${image.alt}'/></li>`;
+//   return galleryList.insertAdjacentHTML('beforeend', galleryItems);
+// });
